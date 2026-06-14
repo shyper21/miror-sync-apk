@@ -6,11 +6,11 @@ resmi tetap berada di:
 https://github.com/shyper21/local-android-mirror-releases
 
 Sinkronisasi update:
-- `latest.json` dibaca oleh `index.html` untuk menampilkan versi, link, dan SHA-256.
-- Workflow `.github/workflows/sync-release.yml` menyinkronkan metadata dari repo
-  release utama setiap 30 menit.
-- Workflow juga dapat dijalankan manual melalui tab Actions > Sync MirrorSync
-  release metadata > Run workflow.
+- `index.html` membaca `latest.json` langsung dari repo release utama setiap kali
+  halaman dibuka, dengan cache-busting agar metadata lama tidak tersimpan.
+- `latest.json` di repo ini dipakai sebagai fallback jika metadata utama sedang
+  tidak dapat diakses.
+- Halaman akan mengikuti release MirrorSync terbaru tanpa perlu mengubah HTML.
 
 Keamanan:
 - Tidak ada token GitHub di `index.html`.
