@@ -1,30 +1,23 @@
 MirrorSync Download Site
 ========================
 
-Isi paket:
-- index.html
-- latest.json
-
-Cara pakai paling mudah:
-1. Upload index.html dan latest.json ke root hosting/repository.
-2. Buka index.html dari browser.
-3. Setiap ada versi baru, update isi latest.json saja.
-4. Tombol download di halaman akan otomatis mengikuti URL terbaru dari latest.json.
-
-Jika halaman index.html tidak berada satu folder dengan latest.json:
-- Buka index.html
-- Cari bagian CONFIG
-- Ubah fallbackLatestJsonUrl ke URL raw GitHub latest.json milik kamu.
-
-Repo yang terbaca dari file contoh:
+Repo ini adalah halaman download MirrorSync. Source aplikasi dan asset release
+resmi tetap berada di:
 https://github.com/shyper21/local-android-mirror-releases
 
-Catatan keamanan:
-- File EXE tidak dijalankan/diperiksa oleh halaman ini.
-- Jangan taruh token GitHub di index.html.
-- Untuk repo private, pakai backend/proxy agar token tidak bocor.
+Sinkronisasi update:
+- `latest.json` dibaca oleh `index.html` untuk menampilkan versi, link, dan SHA-256.
+- Workflow `.github/workflows/sync-release.yml` menyinkronkan metadata dari repo
+  release utama setiap 30 menit.
+- Workflow juga dapat dijalankan manual melalui tab Actions > Sync MirrorSync
+  release metadata > Run workflow.
 
+Keamanan:
+- Tidak ada token GitHub di `index.html`.
+- Link installer hanya diarahkan ke GitHub Release resmi.
+- Metadata divalidasi: versi semver, URL HTTPS GitHub Release, dan SHA-256.
+- Halaman tidak menerima upload dan tidak mengumpulkan data HP atau user.
 
-UPDATE FOOTER:
-- Footer modern sudah ditambahkan dengan teks "Created by Hachiman".
-- Link download tetap otomatis membaca latest.json.
+Versi metadata saat dokumen ini diperbarui: MirrorSync v1.3.1.
+
+Created by Hachiman
