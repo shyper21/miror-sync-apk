@@ -1,10 +1,10 @@
 {
-  "version": "1.3.4",
-  "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.4",
-  "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.4/MirrorSync-Setup-v1.3.4.zip",
-  "sha256": "E6B03D56AE23033E308D56B28CD2BB4E46600C3A0340CFBB385C842D45DAF055",
-  "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.4/MirrorSync-Setup-v1.3.4.exe",
-  "installerSha256": "8784E63DA4AC0DB14DECCD512626981591C9FFC65B9BD5341EF317ED3CC6E604",
-  "releaseNotes": "Fix intermittent black CMD and console popups from ADB polling and scrcpy startup. Dashboard layout is unchanged.",
+  "version": "1.3.6",
+  "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.6",
+  "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.6/MirrorSync-Setup-v1.3.6.zip",
+  "sha256": "07D977DBBB47B73FE9402AEEA3E9335E1D0FCB75BF576AE7043884845D899705",
+  "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.6/MirrorSync-Setup-v1.3.6.exe",
+  "installerSha256": "6F23AC901B8EA98006D52902229DD03338BF840E4DE3F0F72625354E5F146FAE",
+  "releaseNotes": "Fix backend port fallback from 3030 to 3031-3040, remove unsigned helper executables to reduce Windows Security blocks, update diagnostics, and preserve mirror/input stability.",
   "publishedAt": "2026-06-16"
 }
