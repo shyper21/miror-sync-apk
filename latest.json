@@ -1,10 +1,10 @@
 {
-  "version": "1.3.6",
-  "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.6",
-  "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.6/MirrorSync-Setup-v1.3.6.zip",
-  "sha256": "07D977DBBB47B73FE9402AEEA3E9335E1D0FCB75BF576AE7043884845D899705",
-  "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.6/MirrorSync-Setup-v1.3.6.exe",
-  "installerSha256": "6F23AC901B8EA98006D52902229DD03338BF840E4DE3F0F72625354E5F146FAE",
-  "releaseNotes": "Fix backend port fallback from 3030 to 3031-3040, remove unsigned helper executables to reduce Windows Security blocks, update diagnostics, and preserve mirror/input stability.",
+  "version": "1.3.7",
+  "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.7",
+  "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.7/MirrorSync-Setup-v1.3.7.zip",
+  "sha256": "ISI_HASH_ZIP_V137",
+  "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.7/MirrorSync-Setup-v1.3.7.exe",
+  "installerSha256": "ISI_HASH_EXE_V137",
+  "releaseNotes": "Final release candidate: preserve v1.3.6 port fallback and mirror controls, adopt stable hidden startup lifecycle inspired by v1.2.0, remove visible terminal runtime, and prepare installer for direct use on other laptops.",
   "publishedAt": "2026-06-16"
 }
