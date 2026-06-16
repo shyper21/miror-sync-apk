@@ -5,6 +5,6 @@
   "sha256": "D6CA4B1E4CA3B4AD68A501335975D0C62977DA74AFF50B797595DE77275260A9",
   "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.7/MirrorSync-Setup-v1.3.7.exe",
   "installerSha256": "3A4F11003B434B16EB8AFC2A5A85543810F6072786C2D255A8D110070407D311",
-  "releaseNotes": "Final release candidate: preserve v1.3.6 port fallback and mirror controls, adopt stable hidden startup lifecycle inspired by v1.2.0, remove visible terminal runtime, and prepare installer for direct use on other laptops.",
+  "releaseNotes": "Final release candidate with manual clean shortcut fix: preserve v1.3.6 port fallback and mirror controls, use hidden backend launcher to prevent visible terminal runtime, and prepare installer for use on other laptops.",
   "publishedAt": "2026-06-16"
 }
