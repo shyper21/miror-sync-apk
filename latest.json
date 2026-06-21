@@ -2,9 +2,9 @@
   "version": "1.3.11",
   "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.11",
   "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.11/MirrorSync-Setup-v1.3.11.zip",
-  "sha256": "7C15E4A01981D09203CEC946D4D6D2D408CC585ECDAD776EB7D583068832F833",
+  "sha256": "B9D27AC46C696A5F046989B55FAE7EC614C202044C8AD3D159F635D0DD9C74E8",
   "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.11/MirrorSync-Setup-v1.3.11.exe",
-  "installerSha256": "054664DB90B64073AA70C4E6BA986AFE9A259D321809DAF93AC47EB4B7FA055C",
-  "releaseNotes": "MirrorSync v1.3.11 adds native mirror shell support, keeps the Android mirror window open when Wireless Debugging disconnects, shows a Retry Connection overlay above the last captured frame, reconnects scrcpy back into the same shell window, prevents duplicate scrcpy processes, and preserves the clean startup fix without black terminal.",
+  "installerSha256": "4F3BEF25BF63B9BC8E50068A6E6CCC3CFA47DC089754E065C8A9D4549634525A",
+  "releaseNotes": "MirrorSync v1.3.11 improves native mirror shell stability, keeps the Android mirror window open during Wireless Debugging disconnects, adds Retry Connection overlay, improves keyboard/autotext handling, adds dashboard clipboard controls for Copy HP to Computer, prevents duplicate scrcpy processes, and preserves clean startup without black terminal.",
   "publishedAt": "2026-06-17"
 }
