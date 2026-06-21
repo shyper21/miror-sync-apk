@@ -1,10 +1,10 @@
 {
-  "version": "1.3.10",
-  "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.10",
-  "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.10/MirrorSync-Setup-v1.3.10.zip",
-  "sha256": "CAE94D9FDD541DE3389B064FC8A21E7BE131C3728BD2B7BF3A18794F80B9230C",
-  "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.10/MirrorSync-Setup-v1.3.10.exe",
-  "installerSha256": "DDE33D988E8F95CD6F607FF785D891377BED99D79B1FE4083EA58031EDDFA78E",
-  "releaseNotes": "Clean hotfix release: keeps the hidden launcher path from v1.3.9 and adds automatic scrcpy console hiding after mirror startup, so users no longer see the black terminal after restart while Android mirroring remains active.",
+  "version": "1.3.11",
+  "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.11",
+  "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.11/MirrorSync-Setup-v1.3.11.zip",
+  "sha256": "2E97B2838B9C43C51EA4B12418B827ADD451AA33A5733976475307582BFD57DA",
+  "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.11/MirrorSync-Setup-v1.3.11.exe",
+  "installerSha256": "B5C036C64D272BC3FFEDADE2298927A396AC1DDEF4AB1D6EA7BF0006A975D5B5",
+  "releaseNotes": "MirrorSync v1.3.11 improves wireless debugging reconnect behavior, keeps the Android mirror tab visible during disconnects, improves retry/cancel handling, improves keyboard/numpad support, and preserves the clean startup fix without black terminal.",
   "publishedAt": "2026-06-17"
 }
