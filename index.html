@@ -215,5 +215,404 @@
     .mode-mini b, .mode-mini span { display: block; }
     .mode-mini b { font-size: 13px; }
     .mode-mini span { margin-top: 5px; color: var(--muted); font-size: 11px; }
-    .connection-states { margin-top: 13px; display: grid; grid-template-columns: 1fr 1fr; gap: 9px…19296 tokens truncated…><text x="337" y="349" fill="#071321" font-family="Segoe UI,Arial" font-size="17" font-weight="800">Start Mirror</text><path d="m291 328 22 13-22 13z" fill="#071321"/>
-</svg>
+    .connection-states { margin-top: 13px; display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .state-card { padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(0,0,0,.12); }
+    .state-card b, .state-card span { display: block; }
+    .state-card b { font-size: 11px; }
+    .state-card span { margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .state-connected { border-color: rgba(98,230,165,.24); }
+    .state-connected b { color: #9bf4c6; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 13px; }
+    .feature-card { min-height: 188px; padding: 23px; border-radius: var(--radius-md); }
+    .feature-icon { width: 42px; height: 42px; display: grid; place-items: center; color: var(--aqua); border: 1px solid rgba(49,223,209,.2); border-radius: 13px; background: rgba(49,223,209,.07); font-weight: 900; }
+    .feature-card h3 { margin: 30px 0 7px; font-size: 17px; }
+    .feature-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .feature-tag { display: inline-flex; margin-top: 13px; padding: 4px 8px; color: #bdf9f0; border: 1px solid rgba(49,223,209,.2); border-radius: 999px; background: rgba(49,223,209,.06); font-size: 9px; font-weight: 850; text-transform: uppercase; }
+
+    .update-panel, .download-panel { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(130deg, rgba(49,223,209,.075), rgba(102,130,255,.08)); }
+    .update-panel { display: grid; grid-template-columns: 1fr .8fr; gap: 28px; align-items: center; }
+    .update-panel h2, .download-panel h2 { font-size: clamp(30px,4vw,47px); }
+    .update-panel p, .download-panel p { color: var(--muted); }
+    .update-steps { display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .update-node { min-width: 112px; padding: 17px; text-align: center; border: 1px solid var(--line); border-radius: 15px; background: rgba(7,18,31,.55); }
+    .update-node small, .update-node b { display: block; }
+    .update-node small { color: var(--muted); font-size: 10px; }
+    .update-node b { margin-top: 4px; }
+    .update-node.current { border-color: rgba(49,223,209,.32); background: rgba(49,223,209,.08); }
+    .update-arrow { color: var(--aqua); }
+
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+    .faq-item { border-radius: 16px; overflow: hidden; }
+    .faq-item summary { padding: 18px 20px; display: flex; justify-content: space-between; gap: 15px; cursor: pointer; font-weight: 780; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; color: var(--aqua); font-size: 20px; line-height: 1; }
+    .faq-item[open] summary::after { content: "-"; }
+    .faq-item p { margin: 0; padding: 0 20px 20px; color: var(--muted); font-size: 13px; }
+
+    .download-panel { display: grid; grid-template-columns: 1fr 420px; gap: 30px; align-items: center; }
+    .release-card { padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: rgba(5,16,28,.68); }
+    .release-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .version-pill { padding: 6px 10px; color: #bdf9f0; border: 1px solid rgba(49,223,209,.22); border-radius: 999px; background: rgba(49,223,209,.07); font-size: 12px; font-weight: 850; }
+    .release-date { color: var(--muted); font-size: 11px; }
+    .release-card .button { width: 100%; margin-top: 9px; }
+    .hash-box { margin-top: 15px; padding: 13px; border: 1px solid var(--line); border-radius: 13px; background: rgba(0,0,0,.16); }
+    .hash-head { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 10px; }
+    .copy-button { padding: 4px 7px; color: var(--soft); border: 1px solid var(--line); border-radius: 7px; background: transparent; cursor: pointer; }
+    .hash-value { display: block; margin-top: 8px; color: var(--soft); font-size: 9px; line-height: 1.5; overflow-wrap: anywhere; }
+    .release-status { margin-bottom: 0 !important; font-size: 11px; }
+    .release-error { color: var(--warning) !important; }
+    .sticky-download { position: fixed; left: 50%; bottom: 14px; z-index: 48; width: min(calc(100% - 28px), 760px); min-height: 62px; padding: 9px 10px 9px 17px; display: flex; align-items: center; gap: 14px; border: 1px solid rgba(182,216,255,.2); border-radius: 18px; background: rgba(7,20,34,.9); box-shadow: 0 20px 60px rgba(0,0,0,.38); backdrop-filter: blur(20px); transform: translateX(-50%); }
+    .sticky-release { min-width: 0; margin-right: auto; }
+    .sticky-release small, .sticky-release b { display: block; }
+    .sticky-release small { color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+    .sticky-release b { margin-top: 2px; font-size: 13px; }
+    .sticky-download .button { min-height: 42px; padding-inline: 14px; border-radius: 12px; font-size: 12px; }
+    .footer { padding: 68px 0 36px; display: flex; justify-content: space-between; gap: 25px; color: var(--muted); font-size: 12px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer a { text-decoration: none; }
+
+    [data-reveal] { opacity: 0; transform: translateY(15px); transition: opacity .55s ease, transform .55s ease; }
+    [data-reveal].visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } [data-reveal] { opacity: 1; transform: none; } }
+    @media (max-width: 980px) {
+      .nav-links { overflow-x: auto; padding-bottom: 5px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 64px; }
+      .hero-copy { text-align: center; }
+      .eyebrow, .hero-badges, .hero-actions { margin-inline: auto; justify-content: center; }
+      .hero-lead { margin-inline: auto; }
+      .hero-visual { width: min(100%, 650px); margin-inline: auto; }
+      .quick-start, .feature-grid { grid-template-columns: repeat(2,1fr); }
+      .split, .wireless-flow, .status-panel, .update-panel, .download-panel { grid-template-columns: 1fr; }
+      .download-panel { align-items: stretch; }
+      .release-card { width: min(100%, 500px); }
+    }
+    @media (max-width: 680px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      .nav { min-height: 66px; }
+      .brand-mark { width: 35px; height: 35px; }
+      .nav-links { flex: 0 0 auto; margin-left: auto; overflow: visible; padding-bottom: 0; }
+      .nav-cta { padding: 8px 11px; }
+      .hero { min-height: auto; padding: 54px 0 24px; }
+      h1 { font-size: clamp(46px, 14.2vw, 58px); letter-spacing: -.06em; }
+      .hero-actions .button { width: 100%; }
+      .hero-visual { min-height: 430px; transform: scale(.86); transform-origin: top center; margin-bottom: -55px; }
+      .laptop { left: 50%; width: 450px; transform: translateX(-58%) perspective(1000px) rotateY(5deg); }
+      .phone-frame { right: 50%; transform: translateX(116%) scale(.88); transform-origin: bottom right; }
+      .note-version { right: -15px; }
+      .note-retry { left: -8px; }
+      .quick-start, .feature-grid, .faq-grid, .brand-grid { grid-template-columns: 1fr; }
+      .section { padding-top: 86px; }
+      .content-card, .flow-card, .status-panel, .update-panel, .download-panel { padding: 22px; }
+      .timeline { grid-template-columns: 1fr 1fr; }
+      .timeline.five { grid-template-columns: 1fr 1fr; }
+      .clipboard-modes, .connection-states { grid-template-columns: 1fr; }
+      .port-demo { grid-template-columns: 1fr; }
+      .update-steps { flex-wrap: wrap; }
+      .update-arrow { transform: rotate(90deg); }
+      .sticky-download { bottom: 8px; min-height: 58px; padding: 8px 8px 8px 13px; gap: 8px; border-radius: 16px; }
+      .sticky-release small { display: none; }
+      .sticky-download .button { min-height: 40px; padding-inline: 11px; }
+      .sticky-download .button-secondary { display: none; }
+      .footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <nav class="nav shell" aria-label="Navigasi utama">
+      <a class="brand" href="#top" aria-label="MirrorSync kembali ke atas">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.5 7H10a4 4 0 0 0-4 4v1m8.5-8L18 7l-3.5 3M7.5 17H14a4 4 0 0 0 4-4v-1m-8.5 8L6 17l3.5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        MirrorSync
+      </a>
+      <div class="nav-links">
+        <a href="#start">Mulai</a><a href="#usb">USB</a><a href="#wireless">Wireless</a><a href="#troubleshooting">Troubleshooting</a><a href="#faq">FAQ</a><a class="nav-cta" href="#download">Download</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy" data-reveal>
+        <span class="eyebrow">Local Android workspace</span>
+        <h1><span class="gradient-text">MirrorSync</span></h1>
+        <p class="hero-lead">Mirror Android ke Windows dengan koneksi lokal, USB, atau Wireless Debugging.</p>
+        <div class="hero-actions">
+          <a id="heroDownload" class="button button-primary" href="#download" aria-disabled="true">Download Installer</a>
+          <a class="button button-secondary" href="#start">Panduan Koneksi HP</a>
+          <a class="button button-secondary" href="#troubleshooting">Troubleshooting</a>
+        </div>
+        <div class="hero-badges" aria-label="Keunggulan MirrorSync">
+          <span class="pill">Local First</span><span class="pill">USB &amp; Wireless Debugging</span><span class="pill">Auto Reconnect</span><span class="pill">No Black Terminal</span><span class="pill">Clipboard Control</span>
+        </div>
+      </div>
+      <div class="hero-visual" data-reveal aria-label="Visual dashboard MirrorSync dan HP Android terhubung">
+        <div class="hero-glow"></div>
+        <div class="laptop">
+          <div class="laptop-bar"><span>MirrorSync Dashboard</span><span class="window-dots"><i></i><i></i><i></i></span></div>
+          <div class="dash">
+            <div class="dash-head"><strong>Android Devices</strong><span class="online">LOCAL ONLY</span></div>
+            <div class="device-demo"><span class="phone-dot">M</span><span><b>HP Utama</b><small>Wireless &middot; authorized</small></span><span class="start-chip">START MIRROR</span></div>
+            <div class="dash-grid"><div class="dash-card"><b>Keyboard Mode &middot; Auto</b><div class="dash-line"></div><div class="dash-line short"></div></div><div class="dash-card"><b>Copy HP &rarr; Komputer</b><div class="dash-line"></div><div class="dash-line short"></div></div></div>
+          </div>
+        </div>
+        <div class="phone-frame"><div class="phone-screen"><span class="notch"></span><div class="phone-content"><small>Connected locally</small><div class="phone-title">Android on Windows</div><div class="mobile-card"><small>Mirror status</small><b>Connected</b></div><div class="mobile-row"><i></i><i></i><i></i></div><div class="retry-mini"><b>Retry Connection Ready</b><span>Last frame tetap terlihat saat jaringan putus.</span></div></div></div></div>
+        <span class="float-note note-version">v1.3.11 Native Mirror Shell</span>
+        <span class="float-note note-retry">Retry Connection Ready</span>
+      </div>
+    </section>
+
+    <section class="section shell" id="start">
+      <div class="section-head" data-reveal><span class="section-label">Mulai dari sini</span><h2>Pilih jalur yang paling cocok.</h2><p>Tidak perlu memahami ADB lebih dahulu. Pilih kondisi Anda, lalu ikuti langkahnya dari atas ke bawah.</p></div>
+      <div class="quick-start">
+        <a class="choice-card" href="#usb" data-reveal><span class="choice-number">01</span><h3>Saya baru pertama kali</h3><p>Mulai dari USB untuk memberi izin komputer dengan cara paling stabil.</p><span class="choice-link">Ikuti panduan USB &rarr;</span></a>
+        <a class="choice-card" href="#wireless" data-reveal><span class="choice-number">02</span><h3>Saya mau tanpa kabel</h3><p>Gunakan Wireless Debugging Android 11+ pada WiFi yang sama.</p><span class="choice-link">Atur koneksi Wireless &rarr;</span></a>
+        <a class="choice-card" href="#offline" data-reveal><span class="choice-number">03</span><h3>HP saya offline</h3><p>Lihat langkah Retry Connection tanpa menutup window Android.</p><span class="choice-link">Pulihkan koneksi &rarr;</span></a>
+        <a class="choice-card" href="#keyboard" data-reveal><span class="choice-number">04</span><h3>Keyboard / clipboard bermasalah</h3><p>Pilih mode input yang tepat dan gunakan clipboard secara aman.</p><span class="choice-link">Buka panduan input &rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section shell" id="install">
+      <div class="section-head" data-reveal><span class="section-label">Persiapan Windows</span><h2>Install sekali, buka seperti aplikasi biasa.</h2><p>Gunakan installer resmi, lalu selalu buka MirrorSync dari shortcut Desktop atau Start Menu.</p></div>
+      <div class="split">
+        <article class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-beginner">Beginner friendly</span><span class="guide-badge badge-security">Security note</span></div><h3>Cara install MirrorSync</h3><ol class="step-list"><li>Download installer <strong>EXE</strong> resmi.</li><li>Jalankan installer dan tunggu hingga selesai.</li><li>Buka MirrorSync melalui shortcut Desktop.</li></ol><details class="detail-drawer"><summary>Jika Windows SmartScreen muncul</summary><div class="drawer-body"><p>Pastikan file berasal dari GitHub Release resmi dan cocokkan SHA-256. Klik <strong>More info</strong> lalu <strong>Run anyway</strong> hanya jika sumber dan checksum benar. Jangan menjalankan file internal dari folder aplikasi.</p></div></details><div class="tip"><b>Tips singkat</b><span>Simpan shortcut Desktop; itu jalur startup yang benar dan paling bersih.</span></div></article>
+        <div>
+          <figure class="visual-card" data-reveal><img src="assets/guide/install-windows.svg" alt="Ilustrasi installer MirrorSync di Windows"><figcaption>Jalankan installer resmi hingga shortcut MirrorSync dibuat.</figcaption></figure>
+          <div class="split" style="margin-top:18px"><figure class="visual-card" data-reveal><img src="assets/guide/smartscreen-warning.svg" alt="Ilustrasi peringatan Windows SmartScreen dan tombol More info"><figcaption>Periksa sumber sebelum memilih Run anyway.</figcaption></figure><figure class="visual-card" data-reveal><img src="assets/guide/desktop-shortcut.svg" alt="Ilustrasi shortcut MirrorSync pada Desktop Windows"><figcaption>Buka aplikasi dari shortcut Desktop.</figcaption></figure></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="developer">
+      <div class="section-head" data-reveal><span class="section-label">Persiapan HP</span><h2>Aktifkan Developer Options.</h2><p>Menu ini tersembunyi secara default. Lokasinya sedikit berbeda pada setiap merek HP.</p></div>
+      <div class="split">
+        <div class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-beginner">Beginner friendly</span></div><h3>Aktifkan dalam tiga langkah</h3><ol class="step-list"><li>Buka About Phone dan temukan Build Number atau versi OS.</li><li>Tap sebanyak <strong>7 kali</strong>, lalu masukkan PIN jika diminta.</li><li>Kembali ke Settings dan cari <strong>Developer Options</strong>.</li></ol><details class="detail-drawer"><summary>Lihat lokasi menu berdasarkan merek HP</summary><div class="drawer-body"><div class="brand-grid"><div class="brand-path"><b>Samsung</b><span>About phone &rarr; Software information &rarr; Build number</span></div><div class="brand-path"><b>Xiaomi / HyperOS</b><span>About phone &rarr; MIUI version atau OS version</span></div><div class="brand-path"><b>OPPO / realme</b><span>About phone &rarr; Version &rarr; Build number</span></div><div class="brand-path"><b>vivo</b><span>About phone &rarr; Software version atau Build number</span></div></div></div></details><div class="tip"><b>Tips singkat</b><span>Gunakan kolom pencarian Settings bila nama menu berbeda pada HP Anda.</span></div></div>
+        <div class="split"><figure class="visual-card" data-reveal><img src="assets/guide/android-settings.svg" alt="Ilustrasi menu Settings dan About Phone pada Android"><figcaption>Buka Settings lalu About Phone.</figcaption></figure><figure class="visual-card" data-reveal><img src="assets/guide/developer-options.svg" alt="Ilustrasi Build Number yang perlu diketuk tujuh kali"><figcaption>Tap versi atau Build Number tujuh kali.</figcaption></figure></div>
+      </div>
+    </section>
+
+    <section class="section shell" id="usb">
+      <div class="section-head" data-reveal><span class="section-label">Koneksi USB</span><h2>Paling aman untuk koneksi pertama.</h2><p>USB memudahkan proses izin awal dan membantu memastikan HP dikenali sebelum beralih ke Wireless Debugging.</p></div>
+      <div class="split">
+        <article class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-recommended">Recommended</span><span class="guide-badge badge-beginner">Beginner friendly</span></div><h3>Aktifkan USB Debugging</h3><ol class="step-list"><li>Aktifkan <strong>USB Debugging</strong> di Developer Options.</li><li>Sambungkan kabel data dan pilih File transfer jika diminta.</li><li>Centang <strong>Always allow</strong>, lalu tekan Allow.</li><li>Klik Refresh Devices, pilih HP, lalu Start Mirror.</li></ol><details class="detail-drawer"><summary>HP hanya mengisi daya atau popup tidak muncul?</summary><div class="drawer-body"><p>Ganti dengan kabel data. Jika popup izin tetap tidak muncul, pilih Revoke USB debugging authorizations lalu sambungkan ulang.</p></div></details><div class="tip"><b>Tips singkat</b><span>Pastikan layar HP terbuka ketika menunggu popup izin.</span></div></article>
+        <div class="split"><figure class="visual-card" data-reveal><img src="assets/guide/usb-debugging.svg" alt="Ilustrasi sakelar USB Debugging aktif pada Developer Options"><figcaption>Aktifkan USB Debugging.</figcaption></figure><figure class="visual-card" data-reveal><img src="assets/guide/allow-debugging.svg" alt="Ilustrasi popup Allow USB debugging dengan Always allow dicentang"><figcaption>Centang Always allow lalu tekan Allow.</figcaption></figure></div>
+      </div>
+      <div class="manual-band" data-reveal><h3>Dari install ke layar Android</h3><p>Lima langkah utama untuk pengguna baru:</p><div class="timeline five"><div class="timeline-step"><small>01</small><b>Install</b></div><div class="timeline-step"><small>02</small><b>USB Debugging</b></div><div class="timeline-step"><small>03</small><b>Allow</b></div><div class="timeline-step"><small>04</small><b>Refresh</b></div><div class="timeline-step"><small>05</small><b>Start Mirror</b></div></div><figure class="visual-card" style="margin-top:18px"><img src="assets/guide/device-detected.svg" alt="Ilustrasi HP terdeteksi, dipilih, dan tombol Start Mirror pada dashboard"><figcaption>Unauthorized berarti izin belum diterima di HP. Offline berarti koneksi perlu dipulihkan.</figcaption></figure></div>
+    </section>
+
+    <section class="section shell" id="wireless">
+      <div class="section-head" data-reveal><span class="section-label">Wireless Debugging / WiFi ADB</span><h2>Mirror tanpa kabel, langkah demi langkah.</h2><p>Wireless Debugging tersedia pada Android 11+. HP dan laptop/PC harus berada di WiFi yang sama selama pairing dan penggunaan.</p></div>
+      <div class="guide-badges" data-reveal><span class="guide-badge">Tanpa kabel</span><span class="guide-badge badge-new">Native retry in v1.3.11</span></div>
+      <div class="callout aqua" data-reveal><span>i</span><div><strong>Sebelum mulai</strong><p>Aktifkan Wireless Debugging, jangan matikan WiFi saat mirror, dan ingat bahwa beberapa HP mengganti pairing code setiap kali menu pairing dibuka ulang.</p></div></div>
+      <figure class="visual-card" style="margin-top:18px" data-reveal><img src="assets/guide/wireless-debugging.svg" alt="Ilustrasi menu Wireless Debugging Android aktif pada jaringan WiFi yang sama"><figcaption>Buka Developer Options &rarr; Wireless Debugging, lalu aktifkan sakelarnya.</figcaption></figure>
+      <div class="wireless-flow" style="margin-top:18px">
+        <article class="flow-card" data-reveal><span class="flow-letter">A</span><span class="mini-badge">Tahap pertama</span><h3>Pair dengan pairing code</h3><ol class="step-list"><li>Tap menu <strong>Wireless Debugging</strong>.</li><li>Pilih <strong>Pair device with pairing code</strong>.</li><li>Catat IP address, <strong>pairing port</strong>, dan pairing code enam digit.</li><li>Masukkan ketiganya ke bagian Pair di MirrorSync.</li><li>Klik <strong>Pair Device</strong> dan tunggu pesan sukses.</li></ol><figure class="visual-card"><img src="assets/guide/pair-code.svg" alt="Ilustrasi pairing code, pairing port, dan form Pair Device MirrorSync"><figcaption>Pairing code hanya berlaku sementara.</figcaption></figure></article>
+        <article class="flow-card" data-reveal><span class="flow-letter">B</span><span class="mini-badge">Setelah pairing berhasil</span><h3>Connect ke alamat utama</h3><ol class="step-list"><li>Kembali ke halaman utama Wireless Debugging.</li><li>Lihat bagian <strong>IP address &amp; port</strong> utama.</li><li>Masukkan IP dan <strong>connect port</strong> ke bagian Connect di MirrorSync.</li><li>Klik <strong>Connect WiFi</strong>, lalu Refresh Devices.</li><li>Pilih HP dan klik <strong>Start Mirror</strong>.</li></ol><figure class="visual-card"><img src="assets/guide/connect-ip-port.svg" alt="Ilustrasi IP address dan connect port pada form Connect WiFi MirrorSync"><figcaption>Status Connected berarti HP siap dipilih.</figcaption></figure></article>
+      </div>
+      <div class="port-warning" data-reveal><b>Jangan tertukar: Pairing Port bukan Connect Port.</b><p>Pairing code port digunakan satu kali untuk <strong>Pair</strong>. IP:Port utama Wireless Debugging digunakan untuk <strong>Connect</strong>. Angka port keduanya biasanya berbeda.</p><div class="port-demo"><span><small>Untuk Pair</small><code>192.168.1.10:37123 + code</code></span><span><small>Untuk Connect</small><code>192.168.1.10:42111</code></span></div></div>
+      <div class="manual-band" data-reveal><h3>Alur Wireless dalam lima langkah</h3><p>Pair biasanya cukup sekali; Connect dapat memakai port baru setelah WiFi atau Wireless Debugging berubah.</p><div class="timeline five"><div class="timeline-step"><small>01</small><b>Aktifkan Wireless</b></div><div class="timeline-step"><small>02</small><b>Pair Code</b></div><div class="timeline-step"><small>03</small><b>Connect IP:Port</b></div><div class="timeline-step"><small>04</small><b>Refresh</b></div><div class="timeline-step"><small>05</small><b>Start Mirror</b></div></div><div class="tip"><b>Tips singkat</b><span>Jika port berubah, gunakan angka terbaru yang tampil di halaman Wireless Debugging.</span></div></div>
+    </section>
+
+    <section class="section shell" id="offline">
+      <div class="section-head" data-reveal><span class="section-label">Saat koneksi terputus</span><h2>Window Android tetap terbuka.</h2><p>WiFi berubah, HP sleep, debugging mati, atau jaringan putus dapat membuat status offline. MirrorSync menjaga frame terakhir agar pekerjaan Anda tidak hilang mendadak.</p></div>
+      <div class="status-panel" data-reveal>
+        <div><div class="guide-badges"><span class="guide-badge badge-new">New in v1.3.11</span></div><h3>Retry Connection</h3><p>Overlay muncul di atas frame terakhir. Aktifkan kembali Wireless Debugging, lalu tunggu auto reconnect atau klik Retry Sekarang.</p><details class="detail-drawer"><summary>Langkah pemulihan lengkap</summary><div class="drawer-body"><ul class="plain-list"><li>Pastikan HP dan laptop/PC masih satu WiFi.</li><li>Matikan VPN atau hotspot isolation jika perangkat tidak saling terlihat.</li><li>Aktifkan kembali Wireless Debugging.</li><li>Jika gagal, ulangi Connect menggunakan IP:Port terbaru.</li><li>Jika pairing hilang, lakukan Pair ulang.</li></ul></div></details><div class="status-actions"><span class="retry-action">Retry Sekarang</span><span class="close-action">Tutup Mirror</span></div><div class="tip"><b>Tips singkat</b><span>Tunggu beberapa detik setelah Wireless Debugging aktif sebelum menekan Retry.</span></div></div>
+        <figure class="visual-card"><img src="assets/guide/retry-connection.svg" alt="Ilustrasi overlay Retry Connection pada frame Android terakhir"><figcaption>Status “Menunggu perangkat...” tidak menutup window Android.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section shell" id="keyboard">
+      <div class="section-head" data-reveal><span class="section-label">Keyboard, autotext, dan password</span><h2>Ketik dari PC dengan mode yang tepat.</h2><p>Sebagian besar input bekerja langsung. Aplikasi password atau banking tertentu dapat membatasi keyboard virtual, paste, atau autotext demi keamanan.</p></div>
+      <div class="split">
+        <article class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-new">Improved in v1.3.11</span></div><h3>Jika keyboard belum masuk</h3><ol class="step-list"><li>Klik area mirror agar fokus masuk.</li><li>Klik <strong>Focus Mirror</strong> jika keyboard belum terbaca.</li><li><strong>Auto</strong> untuk umum, <strong>SDK</strong> untuk kompatibilitas.</li><li><strong>UHID</strong> untuk numpad/password jika HP mendukung.</li><li>Gunakan <strong>Kirim Teks ke HP</strong> untuk teks panjang atau autotext.</li></ol><details class="detail-drawer"><summary>Catatan autotext dan aplikasi banking</summary><div class="drawer-body"><p>Autotext Windows bisa digunakan, tetapi jangan simpan password dalam snippet tidak aman. Beberapa aplikasi banking sengaja menolak paste atau autotext.</p></div></details><div class="tip"><b>Tips singkat</b><span>Jika numpad/password tidak terbaca, coba UHID lalu klik Focus Mirror.</span></div></article>
+        <figure class="visual-card" data-reveal><img src="assets/guide/keyboard-mode.svg" alt="Ilustrasi pilihan Keyboard Mode Auto, SDK, UHID, Focus Mirror, dan Kirim Teks ke HP"><figcaption>Mulai dari Auto. Gunakan UHID jika numpad atau password tidak terbaca.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section shell" id="clipboard">
+      <div class="section-head" data-reveal><span class="section-label">Clipboard Android</span><h2>Copy HP &rarr; Komputer</h2><p>Ambil teks dari clipboard Android ke Windows saat dibutuhkan.</p></div>
+      <div class="split">
+        <figure class="visual-card" data-reveal><img src="assets/guide/clipboard-dashboard.svg" alt="Ilustrasi toggle Copy HP ke Komputer, Ambil Clipboard HP, dan Clear Clipboard Lokal"><figcaption>Kontrol clipboard hanya menyimpan status dan panjang teks, bukan isinya di log.</figcaption></figure>
+        <article class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-new">New in v1.3.11</span><span class="guide-badge badge-security">Security note</span></div><h3>Kontrol ada di dashboard mirroring</h3><p>Toggle <strong>Copy HP &rarr; Komputer</strong> default OFF. Anda tetap bisa mengambil clipboard secara manual kapan saja.</p><div class="clipboard-modes"><div class="mode-mini"><b>Manual &middot; Default</b><span>Block teks di HP, Ctrl+C, lalu klik Ambil Clipboard HP.</span></div><div class="mode-mini"><b>Auto Sync &middot; Opsional</b><span>Aktifkan toggle, block teks, lalu Ctrl+C. MirrorSync mencoba menyalinnya ke Windows.</span></div></div><div class="connection-states"><div class="state-card state-connected"><b>CONNECTED</b><span>Manual pull dan Auto Sync dapat bekerja.</span></div><div class="state-card"><b>DISCONNECTED / RECONNECTING</b><span>Auto Sync berhenti sampai koneksi pulih.</span></div></div><ul class="plain-list"><li>Clear Clipboard Lokal setelah selesai.</li><li>Aplikasi Android atau banking dapat memblokir copy/paste.</li><li>Isi clipboard tidak disimpan ke log, file, diagnostics, localStorage, atau history aplikasi.</li></ul><div class="callout"><span>!</span><div><strong>Clipboard bisa berisi password, OTP, nomor rekening, atau data sensitif.</strong><p>Aktifkan Auto Sync hanya saat dibutuhkan dan bersihkan clipboard setelah selesai.</p></div></div><div class="tip"><b>Tips singkat</b><span>Biarkan toggle OFF untuk penggunaan sehari-hari; gunakan manual pull saat perlu.</span></div></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="features">
+      <div class="section-head" data-reveal><span class="section-label">Fitur utama</span><h2>Lebih stabil, tetap lokal.</h2><p>MirrorSync memadukan bundled ADB dan scrcpy dengan pengalaman Windows yang bersih untuk penggunaan pribadi.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card" data-reveal><span class="feature-icon">01</span><h3>Native Mirror Shell</h3><p>Window mirror konsisten, fokus keyboard lebih terjaga, dan reconnect kembali ke window yang sama.</p><span class="feature-tag">New in v1.3.11</span></article>
+        <article class="feature-card" data-reveal><span class="feature-icon">02</span><h3>Retry + Last Frame</h3><p>Frame terakhir tetap terlihat saat Wireless Debugging terputus dan overlay memberi langkah pemulihan.</p><span class="feature-tag">New in v1.3.11</span></article>
+        <article class="feature-card" data-reveal><span class="feature-icon">03</span><h3>Auto Reconnect</h3><p>Mencoba menyambungkan ADB dan scrcpy kembali tanpa membuat window duplikat.</p></article>
+        <article class="feature-card" data-reveal><span class="feature-icon">04</span><h3>Keyboard Auto / SDK / UHID</h3><p>Pilih metode input sesuai kebutuhan aplikasi, keyboard fisik, numpad, dan autotext.</p></article>
+        <article class="feature-card" data-reveal><span class="feature-icon">05</span><h3>Clipboard Control</h3><p>Manual pull dan Auto Sync opsional dengan default OFF serta tanpa menyimpan isi clipboard.</p><span class="feature-tag">New in v1.3.11</span></article>
+        <article class="feature-card" data-reveal><span class="feature-icon">06</span><h3>No Black Terminal</h3><p>Launcher, backend, dan console scrcpy ditangani tanpa terminal hitam yang mengganggu.</p><span class="feature-tag">Clean startup fixed in v1.3.10</span></article>
+        <article class="feature-card" data-reveal><span class="feature-icon">07</span><h3>USB &amp; Wireless</h3><p>Mulai dengan USB atau gunakan Wireless Debugging Android 11+ pada jaringan lokal.</p></article>
+        <article class="feature-card" data-reveal><span class="feature-icon">08</span><h3>Local Only</h3><p>Dashboard berjalan pada localhost dan stream layar tidak dikirim ke cloud.</p></article>
+        <article class="feature-card" data-reveal><span class="feature-icon">09</span><h3>Auto Update</h3><p>Periksa dan pasang update dari aplikasi tanpa uninstall manual.</p></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="update">
+      <div class="update-panel" data-reveal>
+        <div><span class="section-label">Update dari versi lama</span><h2>Update tanpa uninstall manual.</h2><ol class="step-list"><li>Buka MirrorSync dari Desktop.</li><li>Klik <strong>Check Update</strong>, lalu klik <strong>Update</strong>.</li><li>Tunggu pemasangan selesai.</li><li>Buka ulang MirrorSync melalui shortcut Desktop.</li><li>Jika update gagal, download installer terbaru dan jalankan di atas instalasi lama.</li></ol></div>
+        <div><div class="update-steps" aria-label="Alur update dari versi 1.3.9 atau 1.3.10 ke 1.3.11"><div class="update-node"><small>Versi lama</small><b>v1.3.9 / 1.3.10</b></div><span class="update-arrow">&rarr;</span><div class="update-node current"><small>Target fitur</small><b>v1.3.11</b></div></div><figure class="visual-card" style="margin-top:18px"><img src="assets/guide/update-flow.svg" alt="Ilustrasi Check Update, download, install, dan buka kembali MirrorSync"><figcaption>Versi download aktual tetap dibaca dari latest.json.</figcaption></figure></div>
+      </div>
+    </section>
+
+    <section class="section shell" id="troubleshooting">
+      <div class="section-head" data-reveal><span class="section-label">Troubleshooting</span><h2>Status HP memberi petunjuk.</h2><p>Ikuti tindakan berdasarkan status yang terlihat di dashboard.</p></div>
+      <div class="quick-start">
+        <article class="content-card" data-reveal><h3>Unauthorized</h3><p>Unlock HP dan terima popup Allow USB debugging. Centang Always allow agar izin tidak terus ditanyakan.</p></article>
+        <article class="content-card" data-reveal><h3>Offline</h3><p>Cabut-colok USB atau aktifkan kembali Wireless Debugging. Klik Restart ADB atau ulangi Connect IP:Port.</p></article>
+        <article class="content-card" data-reveal><h3>Tidak terdeteksi</h3><p>Pastikan kabel mendukung data, HP dan PC satu WiFi, VPN tidak mengisolasi jaringan, lalu Refresh Devices.</p></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="faq">
+      <div class="section-head" data-reveal><span class="section-label">FAQ</span><h2>Jawaban untuk pertanyaan umum.</h2><p>Buka pertanyaan yang sesuai dengan kondisi Anda.</p></div>
+      <div class="faq-grid">
+        <details class="faq-item" data-reveal><summary>Apa beda USB Debugging dan Wireless Debugging?</summary><p>USB Debugging memakai kabel data dan paling stabil untuk setup awal. Wireless Debugging memakai WiFi lokal tanpa kabel dan tersedia pada Android 11+.</p></details>
+        <details class="faq-item" data-reveal><summary>Kenapa Pairing Port dan Connect Port berbeda?</summary><p>Pairing Port digunakan bersama pairing code untuk membangun kepercayaan. Connect Port adalah alamat layanan ADB utama setelah pairing. Gunakan masing-masing pada form yang benar.</p></details>
+        <details class="faq-item" data-reveal><summary>Kenapa HP menjadi offline?</summary><p>WiFi berubah, HP sleep, Wireless Debugging mati, VPN, atau jaringan terputus dapat membuat ADB offline. Aktifkan debugging kembali dan ulangi Connect jika perlu.</p></details>
+        <details class="faq-item" data-reveal><summary>Apa itu Retry Connection?</summary><p>Overlay yang muncul saat koneksi mirror putus. MirrorSync mempertahankan frame terakhir sambil mencoba reconnect otomatis atau menunggu Anda menekan Retry Sekarang.</p></details>
+        <details class="faq-item" data-reveal><summary>Apakah window Android tertutup saat koneksi putus?</summary><p>Pada native shell v1.3.11, window dipertahankan dan frame terakhir tetap terlihat selama proses reconnect.</p></details>
+        <details class="faq-item" data-reveal><summary>Kenapa keyboard tidak terbaca?</summary><p>Klik layar mirror atau Focus Mirror. Mulai dengan mode Auto, lalu coba SDK atau UHID jika aplikasi atau HP memerlukan metode input berbeda.</p></details>
+        <details class="faq-item" data-reveal><summary>Kapan sebaiknya memakai UHID?</summary><p>Gunakan UHID untuk pengalaman keyboard fisik, numpad, atau field password jika device mendukungnya. Kembali ke Auto bila ada masalah kompatibilitas.</p></details>
+        <details class="faq-item" data-reveal><summary>Apakah bisa memakai autotext atau password?</summary><p>Bisa melalui keyboard atau Kirim Teks ke HP, tetapi beberapa aplikasi banking sengaja memblokir paste/autotext. Jangan simpan password di snippet yang tidak aman.</p></details>
+        <details class="faq-item" data-reveal><summary>Apakah clipboard saya disimpan?</summary><p>Tidak. Clipboard hanya diproses saat diminta dan tidak masuk log, file, diagnostics, localStorage, atau history aplikasi.</p></details>
+        <details class="faq-item" data-reveal><summary>Kenapa teks tidak bisa dicopy dari aplikasi tertentu?</summary><p>Beberapa aplikasi Android, terutama aplikasi banking, memblokir copy/paste demi keamanan.</p></details>
+        <details class="faq-item" data-reveal><summary>Apakah Auto Sync harus selalu aktif?</summary><p>Tidak. Default Auto Sync adalah OFF. Aktifkan hanya saat dibutuhkan dan hanya ketika status mirror CONNECTED.</p></details>
+        <details class="faq-item" data-reveal><summary>Apakah bisa copy OTP atau password?</summary><p>Bisa jika aplikasi mengizinkan, tetapi gunakan dengan hati-hati dan klik Clear Clipboard Lokal setelah selesai.</p></details>
+        <details class="faq-item" data-reveal><summary>Apakah terminal hitam sudah diperbaiki?</summary><p>Ya, versi terbaru menggunakan startup tersembunyi dan penanganan console scrcpy agar terminal hitam tidak mengganggu penggunaan normal.</p></details>
+        <details class="faq-item" data-reveal><summary>Apakah perlu install ADB atau scrcpy terpisah?</summary><p>Tidak. MirrorSync menyertakan bundled Node runtime, ADB platform-tools, dan scrcpy.</p></details>
+        <details class="faq-item" data-reveal><summary>Apakah data layar dikirim ke cloud?</summary><p>Tidak. Dashboard dan streaming berjalan lokal di laptop/PC. Internet hanya diperlukan untuk download atau memeriksa update.</p></details>
+      </div>
+    </section>
+
+    <section class="section shell" id="download">
+      <div class="download-panel" data-reveal>
+        <div><span class="section-label">Release resmi</span><h2>Siap menghubungkan HP?</h2><p>Versi, URL download, tanggal, dan checksum dibaca dari metadata GitHub Release. Jika metadata gagal dimuat, halaman tidak akan menganggap versi lama sebagai release terbaru.</p><a id="metadataFallbackLink" class="button button-ghost" href="https://github.com/shyper21/local-android-mirror-releases/releases" target="_blank" rel="noopener">Buka GitHub Releases</a></div>
+        <aside class="release-card" aria-label="Download MirrorSync terbaru">
+          <div class="release-top"><span class="version-pill">v<span id="versionText">...</span></span><span class="release-date" id="publishedText">Memuat release</span></div>
+          <a id="downloadExe" class="button button-primary" href="#" aria-disabled="true">Download Installer EXE</a>
+          <a id="downloadZip" class="button button-secondary" href="#" aria-disabled="true">Download Portable ZIP</a>
+          <div class="hash-box"><div class="hash-head"><span>Installer SHA-256</span><button class="copy-button" id="copyHash" type="button" disabled>Copy</button></div><code class="hash-value" id="hashValue">Memuat checksum...</code></div>
+          <p class="release-status" id="releaseStatus" role="status" aria-live="polite">Mengambil metadata release terbaru...</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell"><span>&copy; <span id="year"></span> MirrorSync. Created by Hachiman.</span><div class="footer-links"><a id="releasePage" href="https://github.com/shyper21/local-android-mirror-releases/releases" target="_blank" rel="noopener">GitHub Releases</a><a href="#start">Panduan Koneksi</a><a href="#troubleshooting">Troubleshooting</a><a href="#top">Kembali ke atas</a></div></footer>
+
+  <aside class="sticky-download" aria-label="Download MirrorSync terbaru">
+    <div class="sticky-release"><small>Latest version</small><b>MirrorSync v<span id="stickyVersion">...</span></b></div>
+    <a id="stickyRelease" class="button button-secondary" href="https://github.com/shyper21/local-android-mirror-releases/releases" target="_blank" rel="noopener">GitHub Release</a>
+    <a id="stickyExe" class="button button-primary" href="#download" aria-disabled="true">Download EXE</a>
+  </aside>
+
+  <script>
+    const CONFIG = {
+      latestJsonUrl: "./latest.json",
+      fallbackLatestJsonUrl: "https://raw.githubusercontent.com/shyper21/miror-sync-apk/main/latest.json",
+      releasesUrl: "https://github.com/shyper21/local-android-mirror-releases/releases"
+    };
+
+    const elements = {
+      topbar: document.getElementById("topbar"), heroDownload: document.getElementById("heroDownload"),
+      downloadExe: document.getElementById("downloadExe"), downloadZip: document.getElementById("downloadZip"),
+      version: document.getElementById("versionText"), published: document.getElementById("publishedText"),
+      hash: document.getElementById("hashValue"), copyHash: document.getElementById("copyHash"),
+      status: document.getElementById("releaseStatus"), releasePage: document.getElementById("releasePage"),
+      stickyVersion: document.getElementById("stickyVersion"), stickyExe: document.getElementById("stickyExe"),
+      stickyRelease: document.getElementById("stickyRelease")
+    };
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    window.addEventListener("scroll", () => elements.topbar.classList.toggle("scrolled", window.scrollY > 12), { passive: true });
+
+    const observer = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } });
+    }, { threshold: .08 }) : null;
+    document.querySelectorAll("[data-reveal]").forEach((item) => observer ? observer.observe(item) : item.classList.add("visible"));
+
+    const navSectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const navSections = navSectionLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    if ("IntersectionObserver" in window) {
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navSectionLinks.forEach((link) => link.removeAttribute("aria-current"));
+          const active = navSectionLinks.find((link) => link.getAttribute("href") === "#" + entry.target.id);
+          if (active) active.setAttribute("aria-current", "true");
+        });
+      }, { rootMargin: "-30% 0px -60%", threshold: 0 });
+      navSections.forEach((section) => navObserver.observe(section));
+    }
+
+    function isTrustedReleaseUrl(value) {
+      try { const url = new URL(value); return url.protocol === "https:" && url.hostname === "github.com" && url.pathname.startsWith("/shyper21/local-android-mirror-releases/"); }
+      catch { return false; }
+    }
+    function isSha256(value) { return typeof value === "string" && /^[a-f0-9]{64}$/i.test(value); }
+    function validateRelease(data) {
+      if (!data || !/^\d+\.\d+\.\d+$/.test(data.version || "")) throw new Error("Versi release tidak valid");
+      if (!isTrustedReleaseUrl(data.releasePage) || !isTrustedReleaseUrl(data.downloadUrl) || !isTrustedReleaseUrl(data.installerUrl)) throw new Error("URL release tidak valid");
+      if (!isSha256(data.sha256) || !isSha256(data.installerSha256)) throw new Error("Checksum tidak valid");
+      return data;
+    }
+    async function fetchJson(url) {
+      const separator = url.includes("?") ? "&" : "?";
+      const response = await fetch(url + separator + "v=" + Date.now(), { cache: "no-store" });
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      return response.json();
+    }
+    function enableLink(element, url) { element.href = url; element.setAttribute("aria-disabled", "false"); }
+    function formatDate(value) {
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? "Release terbaru" : date.toLocaleDateString("id-ID", { day: "2-digit", month: "long", year: "numeric" });
+    }
+    function renderRelease(data, source) {
+      elements.version.textContent = data.version;
+      elements.stickyVersion.textContent = data.version;
+      elements.published.textContent = formatDate(data.publishedAt);
+      elements.hash.textContent = data.installerSha256;
+      enableLink(elements.heroDownload, data.installerUrl);
+      enableLink(elements.downloadExe, data.installerUrl);
+      enableLink(elements.downloadZip, data.downloadUrl);
+      enableLink(elements.stickyExe, data.installerUrl);
+      elements.releasePage.href = data.releasePage;
+      elements.stickyRelease.href = data.releasePage;
+      elements.copyHash.disabled = false;
+      elements.status.classList.remove("release-error");
+      elements.status.textContent = "Release v" + data.version + " siap diunduh dari " + source + ".";
+      elements.copyHash.onclick = async () => {
+        try { await navigator.clipboard.writeText(data.installerSha256); elements.copyHash.textContent = "Copied"; }
+        catch { elements.copyHash.textContent = "Gagal"; }
+        window.setTimeout(() => { elements.copyHash.textContent = "Copy"; }, 1300);
+      };
+    }
+    function renderMetadataError() {
+      elements.version.textContent = "?";
+      elements.stickyVersion.textContent = "?";
+      elements.published.textContent = "Metadata tidak tersedia";
+      elements.hash.textContent = "Buka GitHub Releases untuk memeriksa release terbaru dan checksum.";
+      elements.status.classList.add("release-error");
+      elements.status.textContent = "Gagal mengambil metadata terbaru. Buka GitHub Releases.";
+      elements.heroDownload.href = CONFIG.releasesUrl;
+      elements.heroDownload.setAttribute("aria-disabled", "false");
+      elements.releasePage.href = CONFIG.releasesUrl;
+    }
+    async function loadRelease() {
+      const sources = [[CONFIG.latestJsonUrl, "metadata website"], [CONFIG.fallbackLatestJsonUrl, "GitHub Release"]];
+      for (const [url, label] of sources) {
+        try { renderRelease(validateRelease(await fetchJson(url)), label); return; }
+        catch (error) { console.info("Metadata belum tersedia dari " + label + "."); }
+      }
+      renderMetadataError();
+    }
+    loadRelease();
+  </script>
+</body>
+</html>
