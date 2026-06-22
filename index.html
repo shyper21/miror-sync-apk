@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#071321">
   <meta name="description" content="Download dan panduan lengkap MirrorSync untuk mirroring Android ke Windows melalui USB atau Wireless Debugging.">
   <title>MirrorSync - Mirror Android ke Windows</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%23091322'/%3E%3Cpath d='M43 20H27a9 9 0 0 0-9 9v2M38 14l7 6-7 6M21 44h16a9 9 0 0 0 9-9v-2M26 50l-7-6 7-6' fill='none' stroke='%232ce1d1' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="assets/mirrorsync-mark.svg">
   <style>
     :root {
       --bg: #06101c;
@@ -72,7 +72,7 @@
     .nav-links a[aria-current="true"] { color: var(--text); }
     .nav-cta { padding: 9px 14px; color: #05131b !important; border-radius: 999px; background: var(--aqua); }
 
-    .hero { min-height: 720px; padding: 82px 0 64px; display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 58px; }
+    .hero { min-height: 650px; padding: 60px 0 38px; display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 52px; }
     .eyebrow, .section-label, .mini-badge { width: fit-content; display: inline-flex; align-items: center; gap: 8px; color: #bffbf4; font-size: 11px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
     .eyebrow { padding: 8px 12px; border: 1px solid rgba(49,223,209,.24); border-radius: 999px; background: rgba(49,223,209,.07); }
     .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 16px var(--success); }
@@ -90,9 +90,9 @@
     .pill { padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--soft); background: rgba(255,255,255,.035); font-size: 11px; font-weight: 760; }
     .pill::before { content: ""; display: inline-block; width: 5px; height: 5px; margin-right: 7px; border-radius: 50%; background: var(--aqua); vertical-align: 1px; }
 
-    .hero-visual { position: relative; min-height: 570px; }
+    .hero-visual { position: relative; min-height: 520px; }
     .hero-glow { position: absolute; inset: 6% 1% 0; border-radius: 50%; background: radial-gradient(circle, rgba(102,130,255,.24), rgba(49,223,209,.07) 42%, transparent 70%); filter: blur(16px); }
-    .laptop { position: absolute; left: 0; top: 70px; width: 485px; padding: 11px; border: 1px solid rgba(194,219,255,.25); border-radius: 25px; background: #0b1727; box-shadow: var(--shadow); transform: perspective(1000px) rotateY(6deg); }
+    .laptop { position: absolute; left: 0; top: 44px; width: 485px; padding: 11px; border: 1px solid rgba(194,219,255,.25); border-radius: 25px; background: #0b1727; box-shadow: var(--shadow); transform: perspective(1000px) rotateY(6deg); }
     .laptop-bar { height: 43px; padding: 0 13px; display: flex; align-items: center; justify-content: space-between; color: var(--soft); border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 800; }
     .window-dots { display: flex; gap: 6px; }
     .window-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.25); }
@@ -139,19 +139,27 @@
     .choice-card p { margin: 0; color: var(--muted); font-size: 13px; }
     .choice-link { position: absolute; left: 24px; bottom: 20px; color: var(--aqua); font-size: 11px; font-weight: 800; }
 
-    .section { padding-top: 108px; }
+    .section { padding-top: 88px; }
     .section-head { max-width: 760px; margin-bottom: 40px; }
     .section-label { color: var(--aqua); }
     h2 { margin: 12px 0 0; font-size: clamp(34px, 4.5vw, 55px); line-height: 1.08; letter-spacing: -.052em; }
     .section-head > p { margin: 17px 0 0; color: var(--muted); font-size: 17px; }
     .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+    .media-layout { display: grid; grid-template-columns: minmax(320px,.78fr) minmax(0,1.22fr); gap: 22px; align-items: stretch; }
+    .media-layout.reverse { grid-template-columns: minmax(0,1.15fr) minmax(320px,.85fr); }
     .content-card { padding: 28px; border-radius: var(--radius-md); transition: border-color .22s ease, transform .22s ease; }
     .content-card:hover { border-color: rgba(182,216,255,.22); }
     .content-card h3 { margin: 0; font-size: 22px; letter-spacing: -.025em; }
     .content-card > p { color: var(--muted); }
-    .visual-card { padding: 18px; border: 1px solid var(--line); border-radius: var(--radius-md); background: rgba(255,255,255,.026); }
+    .visual-card { padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-md); background: rgba(255,255,255,.026); }
     .visual-card img { width: 100%; border-radius: 14px; }
     .visual-card figcaption { margin-top: 12px; color: var(--muted); font-size: 12px; }
+    .visual-card.large { padding: 16px; background: linear-gradient(145deg, rgba(49,223,209,.045), rgba(102,130,255,.035)); }
+    .visual-card.large img { aspect-ratio: 8 / 5; object-fit: cover; }
+    .step-gallery { min-width: 0; display: flex; gap: 14px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: rgba(49,223,209,.45) rgba(255,255,255,.04); padding: 0 0 10px; }
+    .step-gallery .visual-card { flex: 0 0 88%; scroll-snap-align: start; }
+    .gallery-hint { margin: 8px 0 0; color: var(--muted); font-size: 11px; }
+    .gallery-hint::before { content: "Scroll"; margin-right: 8px; color: var(--aqua); font-weight: 850; text-transform: uppercase; letter-spacing: .08em; }
     .step-list { list-style: none; margin: 22px 0 0; padding: 0; counter-reset: steps; display: grid; gap: 15px; }
     .step-list li { position: relative; min-height: 37px; padding-left: 48px; color: var(--soft); counter-increment: steps; }
     .step-list li::before { content: counter(steps); position: absolute; left: 0; top: -3px; width: 32px; height: 32px; display: grid; place-items: center; color: var(--aqua); border: 1px solid rgba(49,223,209,.22); border-radius: 10px; background: rgba(49,223,209,.07); font-size: 11px; font-weight: 900; }
@@ -188,6 +196,13 @@
     .timeline-step:hover { transform: translateY(-3px); border-color: rgba(49,223,209,.3); }
     .timeline-step small { color: var(--aqua); font-weight: 850; }
     .timeline-step b { display: block; margin-top: 6px; font-size: 13px; }
+    .usb-install-block { margin-top: 18px; padding: 24px; display: grid; grid-template-columns: minmax(0,1.08fr) minmax(320px,.92fr); gap: 24px; align-items: center; border: 1px solid rgba(49,223,209,.2); border-radius: var(--radius-lg); background: linear-gradient(130deg, rgba(49,223,209,.075), rgba(102,130,255,.045)); }
+    .usb-install-copy h3 { margin: 10px 0 0; font-size: 26px; letter-spacing: -.035em; }
+    .usb-install-copy > p { color: var(--muted); }
+    .usb-actions { margin-top: 17px; display: grid; gap: 9px; }
+    .usb-action { padding: 12px 14px; display: flex; gap: 11px; align-items: flex-start; border: 1px solid var(--line); border-radius: 13px; background: rgba(7,18,31,.44); }
+    .usb-action b { color: var(--aqua); font-size: 11px; }
+    .usb-action span { color: var(--soft); font-size: 12px; }
 
     .wireless-flow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .flow-card { position: relative; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--panel); overflow: hidden; }
@@ -249,6 +264,22 @@
     .faq-item summary::after { content: "+"; color: var(--aqua); font-size: 20px; line-height: 1; }
     .faq-item[open] summary::after { content: "-"; }
     .faq-item p { margin: 0; padding: 0 20px 20px; color: var(--muted); font-size: 13px; }
+    .trouble-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+    .trouble-item { border: 1px solid var(--line); border-radius: 17px; background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.022)); overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
+    .trouble-item:hover { border-color: rgba(49,223,209,.28); transform: translateY(-2px); }
+    .trouble-item summary { padding: 18px 19px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; cursor: pointer; list-style: none; }
+    .trouble-item summary::-webkit-details-marker { display: none; }
+    .trouble-item summary::after { content: "+"; color: var(--aqua); font-size: 21px; line-height: 1; }
+    .trouble-item[open] summary::after { content: "-"; }
+    .trouble-icon { width: 34px; height: 34px; display: grid; place-items: center; color: var(--aqua); border: 1px solid rgba(49,223,209,.2); border-radius: 11px; background: rgba(49,223,209,.065); font-size: 11px; font-weight: 900; }
+    .trouble-title b, .trouble-title span { display: block; }
+    .trouble-title b { font-size: 14px; }
+    .trouble-title span { margin-top: 2px; color: var(--muted); font-size: 10px; }
+    .trouble-body { padding: 0 19px 18px 65px; }
+    .trouble-body p { margin: 0; color: var(--muted); font-size: 12px; }
+    .trouble-body p + p { margin-top: 9px; }
+    .trouble-body strong { color: var(--soft); }
+    .quick-fix { margin-top: 11px !important; padding: 10px 12px; color: #bffbf4 !important; border-left: 3px solid var(--aqua); border-radius: 0 10px 10px 0; background: rgba(49,223,209,.05); }
 
     .download-panel { display: grid; grid-template-columns: 1fr 420px; gap: 30px; align-items: center; }
     .release-card { padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: rgba(5,16,28,.68); }
@@ -284,7 +315,8 @@
       .hero-lead { margin-inline: auto; }
       .hero-visual { width: min(100%, 650px); margin-inline: auto; }
       .quick-start, .feature-grid { grid-template-columns: repeat(2,1fr); }
-      .split, .wireless-flow, .status-panel, .update-panel, .download-panel { grid-template-columns: 1fr; }
+      .split, .media-layout, .media-layout.reverse, .wireless-flow, .status-panel, .update-panel, .download-panel, .usb-install-block { grid-template-columns: minmax(0,1fr); }
+      .media-layout > *, .usb-install-block > * { min-width: 0; }
       .download-panel { align-items: stretch; }
       .release-card { width: min(100%, 500px); }
     }
@@ -294,7 +326,7 @@
       .brand-mark { width: 35px; height: 35px; }
       .nav-links { flex: 0 0 auto; margin-left: auto; overflow: visible; padding-bottom: 0; }
       .nav-cta { padding: 8px 11px; }
-      .hero { min-height: auto; padding: 54px 0 24px; }
+      .hero { min-height: auto; padding: 54px 0 24px; overflow-x: hidden; }
       h1 { font-size: clamp(46px, 14.2vw, 58px); letter-spacing: -.06em; }
       .hero-actions .button { width: 100%; }
       .hero-visual { min-height: 430px; transform: scale(.86); transform-origin: top center; margin-bottom: -55px; }
@@ -303,11 +335,14 @@
       .note-version { right: -15px; }
       .note-retry { left: -8px; }
       .quick-start, .feature-grid, .faq-grid, .brand-grid { grid-template-columns: 1fr; }
-      .section { padding-top: 86px; }
+      .section { padding-top: 70px; }
       .content-card, .flow-card, .status-panel, .update-panel, .download-panel { padding: 22px; }
       .timeline { grid-template-columns: 1fr 1fr; }
       .timeline.five { grid-template-columns: 1fr 1fr; }
       .clipboard-modes, .connection-states { grid-template-columns: 1fr; }
+      .step-gallery .visual-card { flex-basis: 94%; }
+      .trouble-grid { grid-template-columns: 1fr; }
+      .trouble-body { padding-left: 19px; }
       .port-demo { grid-template-columns: 1fr; }
       .update-steps { flex-wrap: wrap; }
       .update-arrow { transform: rotate(90deg); }
@@ -386,18 +421,22 @@
 
     <section class="section shell" id="developer">
       <div class="section-head" data-reveal><span class="section-label">Persiapan HP</span><h2>Aktifkan Developer Options.</h2><p>Menu ini tersembunyi secara default. Lokasinya sedikit berbeda pada setiap merek HP.</p></div>
-      <div class="split">
+      <div class="media-layout">
         <div class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-beginner">Beginner friendly</span></div><h3>Aktifkan dalam tiga langkah</h3><ol class="step-list"><li>Buka About Phone dan temukan Build Number atau versi OS.</li><li>Tap sebanyak <strong>7 kali</strong>, lalu masukkan PIN jika diminta.</li><li>Kembali ke Settings dan cari <strong>Developer Options</strong>.</li></ol><details class="detail-drawer"><summary>Lihat lokasi menu berdasarkan merek HP</summary><div class="drawer-body"><div class="brand-grid"><div class="brand-path"><b>Samsung</b><span>About phone &rarr; Software information &rarr; Build number</span></div><div class="brand-path"><b>Xiaomi / HyperOS</b><span>About phone &rarr; MIUI version atau OS version</span></div><div class="brand-path"><b>OPPO / realme</b><span>About phone &rarr; Version &rarr; Build number</span></div><div class="brand-path"><b>vivo</b><span>About phone &rarr; Software version atau Build number</span></div></div></div></details><div class="tip"><b>Tips singkat</b><span>Gunakan kolom pencarian Settings bila nama menu berbeda pada HP Anda.</span></div></div>
-        <div class="split"><figure class="visual-card" data-reveal><img src="assets/guide/android-settings.svg" alt="Ilustrasi menu Settings dan About Phone pada Android"><figcaption>Buka Settings lalu About Phone.</figcaption></figure><figure class="visual-card" data-reveal><img src="assets/guide/developer-options.svg" alt="Ilustrasi Build Number yang perlu diketuk tujuh kali"><figcaption>Tap versi atau Build Number tujuh kali.</figcaption></figure></div>
+        <div data-reveal><div class="step-gallery" aria-label="Galeri langkah mengaktifkan Developer Options"><figure class="visual-card large"><img src="assets/guide/android-settings.svg" alt="Ilustrasi menu Settings dan About Phone pada Android"><figcaption><strong>Buka About Phone</strong> lalu cari Build Number atau versi sistem.</figcaption></figure><figure class="visual-card large"><img src="assets/guide/developer-options.svg" alt="Ilustrasi Build Number yang perlu diketuk tujuh kali"><figcaption><strong>Tap versi atau Build Number 7 kali</strong> hingga mode developer aktif.</figcaption></figure></div><p class="gallery-hint">geser untuk melihat langkah berikutnya</p></div>
       </div>
     </section>
 
     <section class="section shell" id="usb">
       <div class="section-head" data-reveal><span class="section-label">Koneksi USB</span><h2>Paling aman untuk koneksi pertama.</h2><p>USB memudahkan proses izin awal dan membantu memastikan HP dikenali sebelum beralih ke Wireless Debugging.</p></div>
-      <div class="split">
+      <div class="media-layout">
         <article class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-recommended">Recommended</span><span class="guide-badge badge-beginner">Beginner friendly</span></div><h3>Aktifkan USB Debugging</h3><ol class="step-list"><li>Aktifkan <strong>USB Debugging</strong> di Developer Options.</li><li>Sambungkan kabel data dan pilih File transfer jika diminta.</li><li>Centang <strong>Always allow</strong>, lalu tekan Allow.</li><li>Klik Refresh Devices, pilih HP, lalu Start Mirror.</li></ol><details class="detail-drawer"><summary>HP hanya mengisi daya atau popup tidak muncul?</summary><div class="drawer-body"><p>Ganti dengan kabel data. Jika popup izin tetap tidak muncul, pilih Revoke USB debugging authorizations lalu sambungkan ulang.</p></div></details><div class="tip"><b>Tips singkat</b><span>Pastikan layar HP terbuka ketika menunggu popup izin.</span></div></article>
-        <div class="split"><figure class="visual-card" data-reveal><img src="assets/guide/usb-debugging.svg" alt="Ilustrasi sakelar USB Debugging aktif pada Developer Options"><figcaption>Aktifkan USB Debugging.</figcaption></figure><figure class="visual-card" data-reveal><img src="assets/guide/allow-debugging.svg" alt="Ilustrasi popup Allow USB debugging dengan Always allow dicentang"><figcaption>Centang Always allow lalu tekan Allow.</figcaption></figure></div>
+        <div data-reveal><div class="step-gallery" aria-label="Galeri langkah izin USB"><figure class="visual-card large"><img src="assets/guide/usb-debugging.svg" alt="Ilustrasi sakelar USB Debugging aktif pada Developer Options"><figcaption><strong>Aktifkan USB Debugging</strong> pada Opsi Pengembang.</figcaption></figure><figure class="visual-card large"><img src="assets/guide/allow-debugging.svg" alt="Ilustrasi popup Allow USB debugging dengan Always allow dicentang"><figcaption><strong>Centang Always allow lalu tekan Allow</strong> saat popup muncul.</figcaption></figure><figure class="visual-card large"><img src="assets/guide/install-via-usb.svg" alt="Ilustrasi menu Instal via USB pada Xiaomi, MIUI, atau HyperOS"><figcaption><strong>Jika tersedia, aktifkan Instal via USB</strong> agar kontrol developer lebih stabil.</figcaption></figure></div><p class="gallery-hint">geser untuk melihat seluruh izin USB</p></div>
       </div>
+      <article class="usb-install-block" data-reveal>
+        <figure class="visual-card large"><img src="assets/guide/install-via-usb.svg" alt="Panduan mengaktifkan Instal via USB pada perangkat yang mendukung"><figcaption>Nama menu dapat berbeda. Gunakan pencarian Settings jika diperlukan.</figcaption></figure>
+        <div class="usb-install-copy"><div class="guide-badges"><span class="guide-badge badge-recommended">Xiaomi / MIUI / HyperOS</span><span class="guide-badge badge-security">Jika tersedia</span></div><h3>Instal via USB / Allow via USB</h3><p>Pada beberapa perangkat, khususnya Xiaomi, MIUI, HyperOS, dan turunannya, <strong>Instal via USB</strong> membantu debugging serta kontrol perangkat berjalan lebih stabil. <strong>Allow USB Debugging</strong> tetap harus diterima saat popup muncul. Tidak semua HP memiliki menu Instal via USB.</p><div class="usb-actions"><div class="usb-action"><b>01</b><span>Aktifkan Instal via USB sebelum mencoba mirroring. Ikuti login akun atau izin sistem bila HP memintanya.</span></div><div class="usb-action"><b>02</b><span>Cabut dan sambungkan ulang kabel jika perlu, lalu pilih Always allow dan Allow USB Debugging.</span></div><div class="usb-action"><b>03</b><span>Klik Refresh Devices di MirrorSync, pilih HP, lalu Start Mirror.</span></div></div><div class="tip"><b>Tips singkat</b><span>Jika hanya charging, ubah ke File Transfer. Jika popup hilang, matikan-nyalakan USB Debugging, revoke authorization, lalu sambungkan ulang.</span></div></div>
+      </article>
       <div class="manual-band" data-reveal><h3>Dari install ke layar Android</h3><p>Lima langkah utama untuk pengguna baru:</p><div class="timeline five"><div class="timeline-step"><small>01</small><b>Install</b></div><div class="timeline-step"><small>02</small><b>USB Debugging</b></div><div class="timeline-step"><small>03</small><b>Allow</b></div><div class="timeline-step"><small>04</small><b>Refresh</b></div><div class="timeline-step"><small>05</small><b>Start Mirror</b></div></div><figure class="visual-card" style="margin-top:18px"><img src="assets/guide/device-detected.svg" alt="Ilustrasi HP terdeteksi, dipilih, dan tombol Start Mirror pada dashboard"><figcaption>Unauthorized berarti izin belum diterima di HP. Offline berarti koneksi perlu dipulihkan.</figcaption></figure></div>
     </section>
 
@@ -424,9 +463,9 @@
 
     <section class="section shell" id="keyboard">
       <div class="section-head" data-reveal><span class="section-label">Keyboard, autotext, dan password</span><h2>Ketik dari PC dengan mode yang tepat.</h2><p>Sebagian besar input bekerja langsung. Aplikasi password atau banking tertentu dapat membatasi keyboard virtual, paste, atau autotext demi keamanan.</p></div>
-      <div class="split">
-        <article class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-new">Improved in v1.3.11</span></div><h3>Jika keyboard belum masuk</h3><ol class="step-list"><li>Klik area mirror agar fokus masuk.</li><li>Klik <strong>Focus Mirror</strong> jika keyboard belum terbaca.</li><li><strong>Auto</strong> untuk umum, <strong>SDK</strong> untuk kompatibilitas.</li><li><strong>UHID</strong> untuk numpad/password jika HP mendukung.</li><li>Gunakan <strong>Kirim Teks ke HP</strong> untuk teks panjang atau autotext.</li></ol><details class="detail-drawer"><summary>Catatan autotext dan aplikasi banking</summary><div class="drawer-body"><p>Autotext Windows bisa digunakan, tetapi jangan simpan password dalam snippet tidak aman. Beberapa aplikasi banking sengaja menolak paste atau autotext.</p></div></details><div class="tip"><b>Tips singkat</b><span>Jika numpad/password tidak terbaca, coba UHID lalu klik Focus Mirror.</span></div></article>
-        <figure class="visual-card" data-reveal><img src="assets/guide/keyboard-mode.svg" alt="Ilustrasi pilihan Keyboard Mode Auto, SDK, UHID, Focus Mirror, dan Kirim Teks ke HP"><figcaption>Mulai dari Auto. Gunakan UHID jika numpad atau password tidak terbaca.</figcaption></figure>
+      <div class="media-layout">
+        <article class="content-card" data-reveal><div class="guide-badges"><span class="guide-badge badge-new">Improved in v1.3.11</span></div><h3>Jika keyboard belum masuk</h3><ol class="step-list"><li>Klik area mirror agar fokus masuk.</li><li>Klik <strong>Focus Mirror</strong> jika keyboard belum terbaca.</li><li><strong>Auto</strong> untuk umum, <strong>SDK</strong> untuk kompatibilitas.</li><li>Untuk <strong>UHID</strong>, buka Keyboard Settings dan pilih layout Physical Keyboard di HP.</li><li>Gunakan <strong>Kirim Teks ke HP</strong> untuk teks panjang atau autotext.</li></ol><details class="detail-drawer"><summary>Catatan autotext dan aplikasi banking</summary><div class="drawer-body"><p>Autotext Windows bisa digunakan, tetapi jangan simpan password dalam snippet tidak aman. Beberapa aplikasi banking sengaja menolak paste atau autotext.</p></div></details><div class="tip"><b>Tips singkat</b><span>Jika numpad/password tidak terbaca, atur layout Physical Keyboard, pilih UHID, lalu klik Focus Mirror.</span></div></article>
+        <figure class="visual-card large" data-reveal><img src="assets/guide/keyboard-mode.svg" alt="Ilustrasi pilihan Keyboard Mode Auto, SDK, UHID, Focus Mirror, dan Kirim Teks ke HP"><figcaption><strong>Mulai dari Auto.</strong> Gunakan Focus Mirror bila input tidak masuk, lalu coba UHID untuk numpad/password.</figcaption></figure>
       </div>
     </section>
 
@@ -462,10 +501,15 @@
 
     <section class="section shell" id="troubleshooting">
       <div class="section-head" data-reveal><span class="section-label">Troubleshooting</span><h2>Status HP memberi petunjuk.</h2><p>Ikuti tindakan berdasarkan status yang terlihat di dashboard.</p></div>
-      <div class="quick-start">
-        <article class="content-card" data-reveal><h3>Unauthorized</h3><p>Unlock HP dan terima popup Allow USB debugging. Centang Always allow agar izin tidak terus ditanyakan.</p></article>
-        <article class="content-card" data-reveal><h3>Offline</h3><p>Cabut-colok USB atau aktifkan kembali Wireless Debugging. Klik Restart ADB atau ulangi Connect IP:Port.</p></article>
-        <article class="content-card" data-reveal><h3>Tidak terdeteksi</h3><p>Pastikan kabel mendukung data, HP dan PC satu WiFi, VPN tidak mengisolasi jaringan, lalu Refresh Devices.</p></article>
+      <div class="media-layout reverse" data-reveal><figure class="visual-card large"><img src="assets/guide/troubleshooting-guide.svg" alt="Peta troubleshooting MirrorSync untuk USB, Wireless, keyboard, dan Retry Connection"><figcaption>Mulai dari gejala yang Anda lihat, lalu ikuti solusi paling pendek.</figcaption></figure><article class="content-card"><div class="guide-badges"><span class="guide-badge badge-beginner">Mulai dari gejala</span></div><h3>Cari masalah yang paling mirip</h3><p>Setiap panel di bawah menjelaskan gejala, penyebab singkat, solusi, dan tips cepat. Anda tidak perlu mengulang instalasi untuk sebagian besar masalah.</p><div class="tip"><b>Urutan aman</b><span>Unlock HP &rarr; cek kabel/WiFi &rarr; cek izin &rarr; Refresh Devices &rarr; Retry.</span></div></article></div>
+      <div class="trouble-grid" style="margin-top:18px">
+        <details class="trouble-item" data-reveal><summary><span class="trouble-icon">USB</span><span class="trouble-title"><b>HP hanya charging</b><span>HP tidak muncul di Refresh Devices</span></span></summary><div class="trouble-body"><p><strong>Penyebab:</strong> kabel tidak mendukung data atau mode USB masih Charging only.</p><p><strong>Solusi:</strong> gunakan kabel data, unlock HP, lalu pilih File Transfer.</p><p class="quick-fix"><strong>Tips cepat:</strong> coba port USB lain tanpa hub.</p></div></details>
+        <details class="trouble-item" data-reveal><summary><span class="trouble-icon">KEY</span><span class="trouble-title"><b>Popup izin tidak muncul</b><span>Status unauthorized atau tidak berubah</span></span></summary><div class="trouble-body"><p><strong>Penyebab:</strong> otorisasi lama tersimpan atau USB Debugging belum memicu ulang dialog.</p><p><strong>Solusi:</strong> matikan-nyalakan USB Debugging, pilih Revoke USB debugging authorizations, lalu sambungkan ulang.</p><p class="quick-fix"><strong>Tips cepat:</strong> pastikan layar HP terbuka.</p></div></details>
+        <details class="trouble-item" data-reveal><summary><span class="trouble-icon">ADB</span><span class="trouble-title"><b>Device tidak terbaca</b><span>Daftar perangkat kosong</span></span></summary><div class="trouble-body"><p><strong>Penyebab:</strong> izin belum diberikan, ADB perlu direstart, atau kabel/WiFi tidak aktif.</p><p><strong>Solusi:</strong> klik Restart ADB, Allow di HP, lalu Refresh Devices.</p><p class="quick-fix"><strong>Tips cepat:</strong> aktifkan Instal via USB jika tersedia.</p></div></details>
+        <details class="trouble-item" data-reveal><summary><span class="trouble-icon">WIFI</span><span class="trouble-title"><b>Wireless Debugging putus</b><span>Status offline setelah sleep atau pindah WiFi</span></span></summary><div class="trouble-body"><p><strong>Penyebab:</strong> WiFi berubah, HP sleep, VPN, atau connect port berganti.</p><p><strong>Solusi:</strong> aktifkan Wireless Debugging, gunakan IP:Port terbaru, lalu Connect kembali.</p><p class="quick-fix"><strong>Tips cepat:</strong> HP dan laptop harus satu jaringan.</p></div></details>
+        <details class="trouble-item" data-reveal><summary><span class="trouble-icon">ABC</span><span class="trouble-title"><b>Keyboard tidak masuk</b><span>Ketikan PC tidak muncul di HP</span></span></summary><div class="trouble-body"><p><strong>Penyebab:</strong> fokus masih berada di dashboard, mode input tidak cocok, atau layout Physical Keyboard untuk UHID belum dipilih.</p><p><strong>Solusi:</strong> klik area mirror, tekan Focus Mirror, lalu coba Auto atau SDK. Untuk UHID, buka Keyboard Settings dan pilih layout di HP.</p><p class="quick-fix"><strong>Tips cepat:</strong> gunakan Kirim Teks ke HP untuk teks panjang.</p></div></details>
+        <details class="trouble-item" data-reveal><summary><span class="trouble-icon">123</span><span class="trouble-title"><b>Numpad/password tidak terbaca</b><span>Angka atau field aman menolak input</span></span></summary><div class="trouble-body"><p><strong>Penyebab:</strong> aplikasi menggunakan field aman atau membatasi input virtual.</p><p><strong>Solusi:</strong> pilih mode UHID bila HP mendukung, lalu Focus Mirror.</p><p class="quick-fix"><strong>Tips cepat:</strong> aplikasi banking dapat tetap memblokir paste.</p></div></details>
+        <details class="trouble-item" data-reveal><summary><span class="trouble-icon">TRY</span><span class="trouble-title"><b>Mirror terputus</b><span>Overlay Retry Connection muncul</span></span></summary><div class="trouble-body"><p><strong>Penyebab:</strong> ADB atau Wireless Debugging kehilangan koneksi sementara.</p><p><strong>Solusi:</strong> pulihkan koneksi lalu klik Retry Sekarang. Frame terakhir tetap terlihat.</p><p class="quick-fix"><strong>Tips cepat:</strong> gunakan Tutup Mirror hanya jika ingin menghentikan sesi.</p></div></details>
       </div>
     </section>
 
