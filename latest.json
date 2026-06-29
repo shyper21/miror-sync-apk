@@ -1,10 +1,10 @@
 {
-  "version": "1.3.11",
-  "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.11",
-  "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.11/MirrorSync-Setup-v1.3.11.zip",
-  "sha256": "B9D27AC46C696A5F046989B55FAE7EC614C202044C8AD3D159F635D0DD9C74E8",
-  "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.11/MirrorSync-Setup-v1.3.11.exe",
-  "installerSha256": "4F3BEF25BF63B9BC8E50068A6E6CCC3CFA47DC089754E065C8A9D4549634525A",
-  "releaseNotes": "MirrorSync v1.3.11 improves native mirror shell stability, keeps the Android mirror window open during Wireless Debugging disconnects, adds Retry Connection overlay, improves keyboard/autotext handling, adds dashboard clipboard controls for Copy HP to Computer, prevents duplicate scrcpy processes, and preserves clean startup without black terminal.",
-  "publishedAt": "2026-06-17"
+  "version": "1.3.14",
+  "releasePage": "https://github.com/shyper21/local-android-mirror-releases/releases/tag/v1.3.14",
+  "installerUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.14/MirrorSync-Setup-v1.3.14.exe",
+  "installerSha256": "0A5FDEA5B09BDA6BF26A55A93F7CBF67173881BD0A43FA9ECFD625A380A7ACE5",
+  "downloadUrl": "https://github.com/shyper21/local-android-mirror-releases/releases/download/v1.3.14/MirrorSync-Setup-v1.3.14.zip",
+  "sha256": "328ED9816658E016F1759047BD51AE5EA8C066F1C0AE0B781F72BADD40A5D299",
+  "releaseNotes": "MirrorSync v1.3.14 stabilizes the desktop dashboard, improves multi-device session handling, keeps WiFi pair/connect fields editable while another mirror is active, disables dashboard clipboard tools temporarily, and keeps clean startup without black terminal.",
+  "publishedAt": "2026-06-29"
 }
